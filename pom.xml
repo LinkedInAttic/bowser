@@ -51,12 +51,14 @@
 	     <encoding>UTF-8</encoding>
 	   </configuration>
 	  </plugin>
+	<!--
       <plugin>
         <artifactId>maven-deploy-plugin</artifactId>
         <configuration>
-          <skip>true</skip> <!-- No need to deploy the reactor -->
+          <skip>true</skip> 
         </configuration>
       </plugin>
+-->
     </plugins>
   </build>
 
