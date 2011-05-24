@@ -38,7 +38,6 @@
 
   <modules>
     <module>bowser-core</module>
-    <module>bowser-tool</module>
   </modules>
 
   <!-- Set the compiler to java6 -->
