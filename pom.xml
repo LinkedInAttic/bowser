@@ -1,0 +1,111 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>6</version>
+  </parent>
+  <groupId>com.linkedin.bowser</groupId>
+  <artifactId>bowser-parent</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>bowser parent</name>
+  <description>Extensible language parser with Python-like syntax.  Written in Java and antlr.</description>
+  <url></url>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git://github.com/linkedin/bowser.git</connection>
+    <developerConnection>scm:git@github.com:linkedin/bowser.git</developerConnection>
+    <url>http://github.com/linkedin/bowser</url>
+  </scm>
+
+ <developers>
+  	<developer>
+	  <id>javasoze</id>
+	  <name>John Wang</name>
+	  <email>john.wang@gmail.com</email>
+	 </developer>
+  </developers>
+
+  <modules>
+    <module>bowser-core</module>
+    <module>bowser-tool</module>
+  </modules>
+
+  <!-- Set the compiler to java6 -->
+  <build>
+    <plugins>
+	 <plugin>
+	   <artifactId>maven-compiler-plugin</artifactId>
+	   <configuration>
+	     <source>1.6</source>
+	     <target>1.6</target>
+	     <encoding>UTF-8</encoding>
+	   </configuration>
+	  </plugin>
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <configuration>
+          <skip>true</skip> <!-- No need to deploy the reactor -->
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <name>sonatype nexus staging repository</name>
+            <url>http://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>sonatype nexus snapshots repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+ 
+	<profiles>
+	    <profile>
+	        <id>release-sign-artifacts</id>
+	        <activation>
+	            <property>
+	                <name>performRelease</name>
+	                <value>true</value>
+	            </property>
+	        </activation>
+	        <build>
+	            <plugins>
+	                <plugin>
+	                    <groupId>org.apache.maven.plugins</groupId>
+	                    <artifactId>maven-gpg-plugin</artifactId>
+	                    <version>1.1</version>
+	                    <executions>
+	                        <execution>
+	                            <id>sign-artifacts</id>
+	                            <phase>verify</phase>
+	                            <goals>
+	                                <goal>sign</goal>
+	                            </goals>
+	                        </execution>
+	                    </executions>
+	                </plugin>
+	            </plugins>
+	        </build>
+	    </profile>
+	</profiles> 
+
+</project>
