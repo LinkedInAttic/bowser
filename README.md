@@ -1,6 +1,6 @@
-# Bowser is a query language  #
+# 🚨 UNMAINTAINED 🚨 
 
-It is designed to support the following
+This project is no longer used by LinkedIn and is currently unmaintained.
 
-* TBD
-
+If you would like to maintain this project, please send an email to
+oss@linkedin.com.
